@@ -1,0 +1,9 @@
+﻿@model Mosaic.Domain.ToDoList
+
+<div id="tasks">
+    @foreach (var item in Model.Tasks)
+    {
+        @Html.Partial("ToDoTask", item)
+    }
+</div>
+

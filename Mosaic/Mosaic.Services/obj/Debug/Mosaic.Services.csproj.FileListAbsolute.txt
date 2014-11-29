@@ -1,0 +1,7 @@
+G:\Mosaic\Mosaic\Mosaic.Services\bin\Debug\Mosaic.Services.dll
+G:\Mosaic\Mosaic\Mosaic.Services\bin\Debug\Mosaic.Services.pdb
+G:\Mosaic\Mosaic\Mosaic.Services\bin\Debug\Mosaic.Domain.dll
+G:\Mosaic\Mosaic\Mosaic.Services\bin\Debug\Mosaic.Domain.pdb
+G:\Mosaic\Mosaic\Mosaic.Services\obj\Debug\Mosaic.Services.csprojResolveAssemblyReference.cache
+G:\Mosaic\Mosaic\Mosaic.Services\obj\Debug\Mosaic.Services.dll
+G:\Mosaic\Mosaic\Mosaic.Services\obj\Debug\Mosaic.Services.pdb

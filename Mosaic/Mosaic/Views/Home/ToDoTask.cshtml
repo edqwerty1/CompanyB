@@ -1,0 +1,43 @@
+﻿@model Mosaic.Domain.ToDoTask
+
+<div id="task-@(Model.Id)">
+
+    @Html.CheckBoxFor(completed => Model.Completed, new { id = "completed_" + Model.Id })
+    &nbsp;
+
+
+    @{
+        if (Model.Completed)
+        {
+            <span class="stroked">
+                @Html.DisplayFor(description => Model.Description)
+            </span>
+        }
+        else
+        {
+            @Html.DisplayFor(description => Model.Description)
+        }
+    }
+
+    &nbsp;
+    @Ajax.ActionLink("Remove", "RemoveTask", new { listId = Model.List.Id, taskId = Model.Id }, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "tasks" })
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#completed_@(Model.Id)").click(function() {
+                $.ajax({
+                    url: '/Home/SetCompleted',
+                    data: { 'listId':@(Model.List.Id) ,'taskId':@(Model.Id), 'completed':$("#completed_@(Model.Id)").is(":checked")},
+                    type: 'POST',
+                    datetype: 'html'
+
+
+                }).success(function (result) {
+                    $('#task-@(Model.Id)').html(result);
+                });
+            });
+        });
+
+    </script>
+
+</div>

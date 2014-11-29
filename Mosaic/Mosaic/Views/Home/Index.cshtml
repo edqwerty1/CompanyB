@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "To Do List";
+}
+
+
+<div class="col-sm-12">
+    <div class="container-fluid page-title">
+        <h2>To Do List</h2>
+    </div>
+    @using (Html.BeginForm("AddTask", "Home"))
+    {
+        @Html.TextBox("taskDescription")
+        <input type="hidden" name="listId" value=@Model.Id />
+        <input type="submit" value="Add Task" />
+    }
+    <div id="toDoList">
+
+    </div>
+    <div id="toDoListLoading" class="loading">
+
+    </div>
+</div>
+
+<script>
+   $(function () {
+      $.ajax({
+         url: '/Home/GetToDoList',
+         contentType: 'application/html; charset=utf-8',
+         type: 'GET',
+         datetype: 'html'
+      }).success(function (result) {
+          $('#toDoListLoading').hide();
+          $('#toDoList').html(result);
+      });
+   });
+</script>
